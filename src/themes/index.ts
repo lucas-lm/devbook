@@ -2,18 +2,6 @@ import { createGlobalStyle } from 'styled-components'
 
 export { dark } from './dark'
 
-export interface Theme {
-  colors: {
-    primary: string
-    secondary: string
-    background: {
-      main: string
-      paper: string
-    }
-  }
-  spacing: (...args: number[]) => string
-}
-
 export default createGlobalStyle`
   * {
     margin: 0;
@@ -25,6 +13,11 @@ export default createGlobalStyle`
 
   :root {
     font-family: 'Ubuntu', sans-serif;
+  }
+
+  div#__next {
+    min-height: 100vh;
+    background-image: ${({ theme }) => theme.colors.background.main}
   }
 
   p {

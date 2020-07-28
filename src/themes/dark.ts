@@ -1,4 +1,6 @@
-export const dark = {
+import { Theme } from 'styled-components'
+
+export const dark: Theme = {
   colors: {
     primary: '#6C80EA',
     secondary: '#A7A5EC',
