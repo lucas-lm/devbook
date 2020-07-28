@@ -1,5 +1,9 @@
-import NavBar from '@components/NavBar'
+import Hero from '@widgets/Hero'
 
 export default function Home() {
-  return <div style={{ color: 'white' }}>Hello world</div>
+  return (
+    <>
+      <Hero margin={2} />
+    </>
+  )
 }
