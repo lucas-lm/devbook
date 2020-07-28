@@ -2,6 +2,18 @@ import { createGlobalStyle } from 'styled-components'
 
 export { dark } from './dark'
 
+export interface Theme {
+  colors: {
+    primary: string
+    secondary: string
+    background: {
+      main: string
+      paper: string
+    }
+  }
+  spacing: (...args: number[]) => string
+}
+
 export default createGlobalStyle`
   * {
     margin: 0;
@@ -17,6 +29,14 @@ export default createGlobalStyle`
 
   p {
     font-family: 'Roboto', sans-serif;
+  }
+
+  h1 {
+    font-size: 5em;
+  }
+
+  p {
+    font-size: 1em;
   }
 
 `
