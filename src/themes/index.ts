@@ -13,6 +13,7 @@ export default createGlobalStyle`
 
   :root {
     font-family: 'Ubuntu', sans-serif;
+    color: #fff;
   }
 
   div#__next {
@@ -20,6 +21,7 @@ export default createGlobalStyle`
     background-image: ${({ theme }) => theme.colors.background.main};
     display: grid;
     grid-template-rows: auto 1fr auto;
+    align-items: flex-start;
   }
 
   p {
