@@ -1,11 +1,5 @@
-import SearchBar from '@components/SearchBar'
-import Logo from '@components/Logo'
+import NavBar from '@components/NavBar'
 
 export default function Home() {
-  return (
-    <>
-      <SearchBar />
-      <Logo />
-    </>
-  )
+  return <NavBar />
 }
