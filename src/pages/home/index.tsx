@@ -1,5 +1,5 @@
 import NavBar from '@components/NavBar'
 
 export default function Home() {
-  return <NavBar />
+  return <div style={{ color: 'white' }}>Hello world</div>
 }
