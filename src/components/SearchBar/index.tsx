@@ -6,7 +6,7 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   variant?: 'round' | 'regular'
 }
 
-const SearchBar: React.FC<Props> = ({ variant = 'regular', ...rest }) => {
+const SearchBar: React.FC<Props> = ({ variant = 'round', ...rest }) => {
   const [search, setSearch] = useState('')
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -18,15 +18,18 @@ const SearchBar: React.FC<Props> = ({ variant = 'regular', ...rest }) => {
     setSearch(event.target.value)
   }
 
+  const borderRadius = variant === 'regular' ? 1.5 : 5
+  const width = variant === 'regular' ? 9 : undefined
+
   return (
-    <Root borderRadius={5} padding={2} onSubmit={handleSubmit}>
+    <Root borderRadius={borderRadius} padding={2} onSubmit={handleSubmit}>
       <Input
         {...rest}
         placeholder="Search..."
         value={search}
         onChange={handleChange}
       />
-      <Button>
+      <Button borderRadius={borderRadius} width={width}>
         <SearchIcon />
       </Button>
     </Root>

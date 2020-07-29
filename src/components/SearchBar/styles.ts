@@ -1,10 +1,15 @@
-import styled, { Theme } from 'styled-components'
+import styled from 'styled-components'
 
-const size = '40px'
-
-interface RootProps {
+interface Generic {
   borderRadius?: number
+}
+
+interface RootProps extends Generic {
   padding?: number
+}
+
+interface ButtonProps extends Generic {
+  width?: number
 }
 
 export const Root = styled.form<RootProps>`
@@ -27,7 +32,8 @@ export const Input = styled.input`
   background-color: transparent;
   display: block;
   font-size: 1.3em;
-  flex: 0;
+  width: 100%;
+  flex: 1;
 
   &::placeholder {
     color: #00000080;
@@ -36,13 +42,15 @@ export const Input = styled.input`
 
 export const Button = styled.button.attrs(() => ({
   type: 'submit',
-}))`
-  width: ${size};
-  height: ${size};
-  border-radius: 50%;
+}))<ButtonProps>`
+  width: ${({ theme }) => theme.spacing(8)};
+  height: ${({ theme }) => theme.spacing(4.5)};
+  border-radius: ${({ theme, borderRadius = 1 }) =>
+    theme.spacing(borderRadius)};
   background-color: ${({ theme }) => theme.colors['primary']};
   display: grid;
   place-items: center;
   cursor: pointer;
   flex-shrink: 0;
+  color: #fff;
 `
