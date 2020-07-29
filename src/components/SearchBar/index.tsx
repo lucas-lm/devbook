@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useRouter } from 'next/router'
 import { Root, Button, Input } from './styles'
 import { FaSearch as SearchIcon } from 'react-icons/fa'
 
@@ -7,11 +8,15 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 const SearchBar: React.FC<Props> = ({ variant = 'round', ...rest }) => {
+  const router = useRouter()
   const [search, setSearch] = useState('')
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    console.log(search)
+    if (search) {
+      router.push({ pathname: 'search', query: { q: search } })
+      setSearch('')
+    }
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
