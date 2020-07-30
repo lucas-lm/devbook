@@ -54,10 +54,11 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const search = parseQuerySearch(query.q)
   const { data }: DataFetch = await api.get(`/search/users`, {
     params: {
-      q: search,
+      q: `${search}`,
       per_page: 40,
     },
   })
+  console.log(`${search}\+type:user`)
   const { total_count: totalCount, items } = data
   return { props: { search, totalCount, users: items } }
 }
