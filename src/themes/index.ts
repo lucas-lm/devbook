@@ -24,16 +24,17 @@ export default createGlobalStyle`
     align-items: flex-start;
   }
 
-  p {
-    font-family: 'Roboto', sans-serif;
-  }
-
   h1 {
     font-size: 5em;
   }
 
   p {
+    font-family: 'Roboto', sans-serif;
     font-size: 1em;
+  }
+
+  a {
+    text-decoration: none;
   }
 
 `
