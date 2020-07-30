@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import Text from '@components/Text'
 import { Avatar } from './styles'
 
@@ -7,20 +8,29 @@ interface Props {
   username: string
   name: string
   bio: string
+  github: string
 }
 
-const UserDetails: React.FC<Props> = ({ name, username, image, bio }) => {
+const UserDetails: React.FC<Props> = ({
+  name,
+  username,
+  image,
+  bio,
+  github,
+}) => {
   return (
-    <div style={{ maxWidth: '600px' }}>
-      <Text size={1.5}>
-        {name} | @{username}
-      </Text>
-      <Avatar user={username} src={image} />
-      <br />
-      <Text weight={300} style={{ display: 'inline' }}>
-        {bio}
-      </Text>
-    </div>
+    <a href={github} target="_blank" rel="noopener">
+      <main style={{ maxWidth: '600px' }}>
+        <Text size={1.5}>
+          {name} | @{username}
+        </Text>
+        <Avatar user={username} src={image} />
+        <br />
+        <Text weight={300} style={{ display: 'inline' }}>
+          {bio}
+        </Text>
+      </main>
+    </a>
   )
 }
 
