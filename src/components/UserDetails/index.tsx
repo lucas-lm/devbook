@@ -5,6 +5,7 @@ import { Avatar } from './styles'
 interface Props {
   image: string
   username: string
+  name: string
   bio: string
 }
 
