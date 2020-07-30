@@ -11,7 +11,7 @@ const Hero: React.FC<Props> = ({ margin = 0 }) => {
     <Root margin={margin}>
       <HeadlineContainer>
         <h1>Stalk people on github!</h1>
-        <SearchBar variant="regular" />
+        <SearchBar variant="regular" autoFocus />
       </HeadlineContainer>
       <Illustration src="/assets/octocat.png" alt="octocat" />
     </Root>
