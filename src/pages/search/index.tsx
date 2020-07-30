@@ -1,5 +1,7 @@
 import { NextPage, GetServerSideProps } from 'next'
+import Link from 'next/link'
 import Text from '@components/Text'
+import Card from '@components/Card'
 import Root, { UsersContainer } from '@layouts/Results'
 import api from '@services/api'
 
@@ -28,12 +30,16 @@ const Search: NextPage<Props> = ({ totalCount, users, search }) => {
         Found {totalCount} result{totalCount > 1 ? 's' : null} for {search}
       </Text>
       <UsersContainer>
-        {users.map((user) => (
-          <>
-            <img width={'100px'} src={user.avatar_url} />
-            <div style={{ margin: 16 }}>@{user.login}</div>
-          </>
-        ))}
+        {users.map((user) => {
+          const { avatar_url: avatarUrl, login: username } = user
+          return (
+            <Link key={username} href={`/dev/${username}`} passHref>
+              <a>
+                <Card avatar={avatarUrl} username={username} />
+              </a>
+            </Link>
+          )
+        })}
       </UsersContainer>
     </Root>
   )
@@ -41,7 +47,7 @@ const Search: NextPage<Props> = ({ totalCount, users, search }) => {
 
 const parseQuerySearch = (queryParam: string | string[] | undefined) => {
   if (!queryParam) return 'octocat'
-  return Array.isArray(queryParam) ? queryParam.join(' ') : queryParam
+  return Array.isArray(queryParam) ? queryParam.join('+') : queryParam
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
@@ -49,6 +55,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const { data }: DataFetch = await api.get(`/search/users`, {
     params: {
       q: search,
+      per_page: 40,
     },
   })
   const { total_count: totalCount, items } = data

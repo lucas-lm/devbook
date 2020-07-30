@@ -10,6 +10,10 @@ export const UsersContainer = styled.main`
   border-radius: ${({ theme }) => theme.spacing(1)};
   display: flex;
   flex-wrap: wrap;
+
+  > * {
+    margin: ${({ theme }) => theme.spacing(2)};
+  }
 `
 
 export default Root
