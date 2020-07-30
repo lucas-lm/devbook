@@ -58,7 +58,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       per_page: 40,
     },
   })
-  console.log(`${search}\+type:user`)
   const { total_count: totalCount, items } = data
   return { props: { search, totalCount, users: items } }
 }

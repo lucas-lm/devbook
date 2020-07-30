@@ -10,8 +10,7 @@ export default styled.div`
 `
 
 export const Section = styled.section`
-  width: 80%;
-  margin: 16px auto;
+  margin: 10px auto;
   background-color: ${({ theme }) => theme.colors.background.paper};
   display: flex;
   flex-wrap: wrap;
