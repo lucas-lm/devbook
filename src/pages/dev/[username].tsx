@@ -1,4 +1,5 @@
 import { NextPage, GetServerSideProps } from 'next'
+import Head from 'next/head'
 import Details from '@components/Details'
 import GHStats from '@components/GithubStats'
 import UserDetails from '@components/UserDetails'
@@ -22,35 +23,40 @@ interface Props {
 
 const DevPage: NextPage<Props> = (props) => {
   return (
-    <Root>
-      <Section>
-        <UserDetails
-          github={props.html_url}
-          image={props.avatar_url}
-          username={props.username}
-          bio={props.bio}
-          name={props.name}
-        />
-      </Section>
-      <Details title="Github Stats" margin={[3, 0]}>
+    <>
+      <Head>
+        <title>Profile of {props.username} - devbook</title>
+      </Head>
+      <Root>
         <Section>
-          <GHStats username={props.username} />
-          <GHStats username={props.username} variant="langs" />
+          <UserDetails
+            github={props.html_url}
+            image={props.avatar_url}
+            username={props.username}
+            bio={props.bio}
+            name={props.name}
+          />
         </Section>
-      </Details>
-      <Details title="Repos" margin={[3, 0]}>
-        <Section>
-          {props.repos.map(({ name }) => (
-            <GHStats
-              key={name}
-              username={props.username}
-              variant="repo"
-              repo={name}
-            />
-          ))}
-        </Section>
-      </Details>
-    </Root>
+        <Details title="Github Stats" margin={[3, 0]}>
+          <Section>
+            <GHStats username={props.username} />
+            <GHStats username={props.username} variant="langs" />
+          </Section>
+        </Details>
+        <Details title="Repos" margin={[3, 0]}>
+          <Section>
+            {props.repos.map(({ name }) => (
+              <GHStats
+                key={name}
+                username={props.username}
+                variant="repo"
+                repo={name}
+              />
+            ))}
+          </Section>
+        </Details>
+      </Root>
+    </>
   )
 }
 

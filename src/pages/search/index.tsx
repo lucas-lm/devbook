@@ -1,4 +1,5 @@
 import { NextPage, GetServerSideProps } from 'next'
+import Head from 'next/head'
 import Link from 'next/link'
 import Text from '@components/Text'
 import Card from '@components/Card'
@@ -25,24 +26,29 @@ interface DataFetch {
 
 const Search: NextPage<Props> = ({ totalCount, users, search }) => {
   return (
-    <Root>
-      <Text size={2} weight={400} as="h1" color="#afafaf">
-        Found {totalCount} result{totalCount > 1 ? 's' : null} for {search}
-      </Text>
-      <br />
-      <UsersContainer>
-        {users.map((user) => {
-          const { avatar_url: avatarUrl, login: username } = user
-          return (
-            <Link key={username} href={`/dev/${username}`} passHref>
-              <a>
-                <Card avatar={avatarUrl} username={username} />
-              </a>
-            </Link>
-          )
-        })}
-      </UsersContainer>
-    </Root>
+    <>
+      <Head>
+        <title>{search} - devbook</title>
+      </Head>
+      <Root>
+        <Text size={2} weight={400} as="h1" color="#afafaf">
+          Found {totalCount} result{totalCount > 1 ? 's' : null} for {search}
+        </Text>
+        <br />
+        <UsersContainer>
+          {users.map((user) => {
+            const { avatar_url: avatarUrl, login: username } = user
+            return (
+              <Link key={username} href={`/dev/${username}`} passHref>
+                <a>
+                  <Card avatar={avatarUrl} username={username} />
+                </a>
+              </Link>
+            )
+          })}
+        </UsersContainer>
+      </Root>
+    </>
   )
 }
 
