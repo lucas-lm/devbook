@@ -13,8 +13,9 @@ const SearchBar: React.FC<Props> = ({ variant = 'round', ...rest }) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if (search) {
-      router.push({ pathname: '/search', query: { q: search } })
+    const q = search.trim()
+    if (q) {
+      router.push({ pathname: '/search', query: { q } })
       // setSearch('')
     }
   }
