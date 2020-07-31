@@ -1,12 +1,15 @@
 import styled from 'styled-components'
 
 export default styled.div`
-  width: 80%;
-  max-width: 1800px;
-  margin: 0 auto;
+  width: 90%;
+  max-width: 1760px;
+  margin: 16px auto;
   /* background-color: ${({ theme }) => theme.colors.background.paper}; */
-  padding: ${({ theme }) => theme.spacing(5)};
-  border-radius: ${({ theme }) => theme.spacing(2)};
+  /* padding: ${({ theme }) => theme.spacing(1, 2)}; */
+
+  @media only screen and (max-width: 768px) {
+    width: 95%;
+  }
 `
 
 export const Section = styled.section`

@@ -16,7 +16,8 @@ export const Root = styled.form<RootProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 320px;
+  width: auto;
+  max-width: 320px;
   background-color: #dddddddd;
   border: 2px solid ${({ theme }) => theme.colors['primary']};
   border-radius: ${({ theme, borderRadius = 0 }) =>

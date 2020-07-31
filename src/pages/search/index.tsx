@@ -26,9 +26,10 @@ interface DataFetch {
 const Search: NextPage<Props> = ({ totalCount, users, search }) => {
   return (
     <Root>
-      <Text size={3} weight={200} as="h1">
+      <Text size={2} weight={400} as="h1" color="#afafaf">
         Found {totalCount} result{totalCount > 1 ? 's' : null} for {search}
       </Text>
+      <br />
       <UsersContainer>
         {users.map((user) => {
           const { avatar_url: avatarUrl, login: username } = user

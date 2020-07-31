@@ -14,4 +14,18 @@ export const Text = styled.span<TextProps>`
   line-height: 1;
   font-weight: 500;
   color: ${({ theme, color = 'primary' }) => theme.colors[color]};
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+`
+
+export const Image = styled.img`
+  display: none;
+  height: 48px;
+  width: 48px;
+
+  @media only screen and (max-width: 768px) {
+    display: block;
+  }
 `

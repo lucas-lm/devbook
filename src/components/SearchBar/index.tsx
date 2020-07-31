@@ -15,7 +15,7 @@ const SearchBar: React.FC<Props> = ({ variant = 'round', ...rest }) => {
     event.preventDefault()
     if (search) {
       router.push({ pathname: '/search', query: { q: search } })
-      setSearch('')
+      // setSearch('')
     }
   }
 

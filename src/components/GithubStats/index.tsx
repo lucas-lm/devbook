@@ -22,7 +22,7 @@ const GhStats: React.FC<Props> = ({
   repo = '',
 }) => {
   const imageUrl = srcUrl(username, repo)[variant]
-  return <img src={imageUrl} />
+  return <img src={imageUrl} style={{ maxWidth: '90%' }} />
 }
 
 export default GhStats
