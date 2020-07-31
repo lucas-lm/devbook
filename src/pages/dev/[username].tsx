@@ -8,6 +8,7 @@ import api from '@services/api'
 
 interface Repo {
   name: string
+  html_url: string
 }
 
 interface Props {
@@ -45,13 +46,15 @@ const DevPage: NextPage<Props> = (props) => {
         </Details>
         <Details title="Repos" margin={[3, 0]}>
           <Section>
-            {props.repos.map(({ name }) => (
-              <GHStats
-                key={name}
-                username={props.username}
-                variant="repo"
-                repo={name}
-              />
+            {props.repos.map(({ name, html_url }) => (
+              <a href={html_url} target="_blank" rel="noopener">
+                <GHStats
+                  key={name}
+                  username={props.username}
+                  variant="repo"
+                  repo={name}
+                />
+              </a>
             ))}
           </Section>
         </Details>
