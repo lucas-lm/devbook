@@ -1,8 +1,10 @@
 import { NextPage, GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import * as Yup from 'yup'
 import Text from '@components/Text'
 import Card from '@components/Card'
+import Pagination from '@components/Pagination'
 import Root, { UsersContainer } from '@layouts/Results'
 import api from '@services/api'
 
@@ -13,6 +15,7 @@ interface User {
 
 interface Props {
   search: string
+  page: number
   totalCount: number
   users: User[]
 }
@@ -24,7 +27,16 @@ interface DataFetch {
   }
 }
 
-const Search: NextPage<Props> = ({ totalCount, users, search }) => {
+const currentPageSchema = Yup.number().min(1)
+
+const perPage = 40
+const GH_API_LIMIT = 1000
+
+const Search: NextPage<Props> = ({ totalCount, users, search, page }) => {
+  const getLinks = (i: number) => `/search?q=${search}&page=${i}`
+
+  const limit = Math.ceil(Math.min(totalCount, GH_API_LIMIT) / perPage)
+
   return (
     <>
       <Head>
@@ -35,6 +47,7 @@ const Search: NextPage<Props> = ({ totalCount, users, search }) => {
           Found {totalCount} result{totalCount > 1 ? 's' : null} for {search}
         </Text>
         <br />
+        <Pagination limit={limit} page={page} linkMap={getLinks} />
         <UsersContainer>
           {users.map((user) => {
             const { avatar_url: avatarUrl, login: username } = user
@@ -47,6 +60,7 @@ const Search: NextPage<Props> = ({ totalCount, users, search }) => {
             )
           })}
         </UsersContainer>
+        <Pagination limit={limit} page={page} linkMap={getLinks} />
       </Root>
     </>
   )
@@ -59,14 +73,21 @@ const parseQuerySearch = (queryParam: string | string[] | undefined) => {
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const search = parseQuerySearch(query.q)
+
+  let { page = 1 } = query
+  currentPageSchema.validate(page).catch(() => {
+    page = 1
+  })
+
   const { data }: DataFetch = await api.get(`/search/users`, {
     params: {
       q: `${search}`,
-      per_page: 40,
+      per_page: perPage,
+      page,
     },
   })
   const { total_count: totalCount, items } = data
-  return { props: { search, totalCount, users: items } }
+  return { props: { search, page, totalCount, users: items } }
 }
 
 export default Search

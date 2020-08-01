@@ -18,6 +18,7 @@ const Root = styled.div`
 `
 
 export const UsersContainer = styled.main`
+  margin: 16px auto;
   background-color: ${({ theme }) => theme.colors.background.paper};
   border-radius: ${({ theme }) => theme.spacing(1)};
   display: flex;
