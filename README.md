@@ -14,10 +14,15 @@
 
 ### 🏠 [Homepage](https://devsbook.now.sh)
 
+## Demo
+
+![Demo](/public/static/devbook-demo.gif)
+
 # Table of Contents
 
 - [Welcome to devbook 👋](#welcome-to-devbook-)
     - [🏠 Homepage](#-homepage)
+  - [Demo](#demo)
 - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Techs](#techs)
