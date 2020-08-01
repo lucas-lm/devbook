@@ -36,6 +36,7 @@ const Pagination: React.FC<Props> = ({
         </Link>
       )}
       {pageCount
+        .filter((i) => i >= 0 && i <= limit)
         .map((i) => (
           <Link key={i} href={linkMap(i)} passHref>
             <Count current={i === page}>{i}</Count>
