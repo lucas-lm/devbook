@@ -97,4 +97,4 @@ This project is [MIT](https://github.com/lucas-lm/devbook/blob/master/LICENSE) l
 
 ## Special thanks
 
-- @anuraghazra for the [github readme stats](https://github.com/anuraghazra/github-readme-stats) public API
+- [@anuraghazra](https://github.com/anuraghazra) for the [github readme stats](https://github.com/anuraghazra/github-readme-stats) public API
