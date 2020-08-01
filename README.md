@@ -1,3 +1,5 @@
+![banner](/public/static/banner.png)
+
 # Welcome to devbook 👋
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
 ![Prerequisite](https://img.shields.io/badge/node-~12.14.1-blue.svg)
@@ -47,12 +49,11 @@ Feel free to check [issues page](https://github.com/lucas-lm/devbook/issues). Yo
 
 Give a ⭐️ if this project helped you!
 
+[Buy me a coffee](https://www.buymeacoffee.com/nVG4BNJ)
+
 
 ## 📝 License
 
 Copyright © 2020 [Lucas Miranda](https://github.com/lucas-lm).
 
 This project is [MIT](https://github.com/lucas-lm/devbook/blob/master/LICENSE) licensed.
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
