@@ -1,6 +1,21 @@
 {
-  "name": "with-styled-components",
+  "name": "devbook",
   "version": "1.0.0",
+  "private": true,
+  "author": {
+    "email": "lucas-m@outlook.com",
+    "name": "Lucas Miranda",
+    "url": "https://lucas-lm.github.io"
+  },
+  "description": "A bingo book of developers",
+  "homepage": "https://devsbook.now.sh",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucas-lm/devbook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lucas-lm/devbook/issues"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -23,5 +38,9 @@
     "babel-plugin-styled-components": "^1.8.0",
     "typescript": "^3.9.7"
   },
-  "license": "ISC"
+  "license": "MIT",
+  "engines": {
+    "node": "~12.14.1",
+    "npm": "~6.13.4"
+  }
 }
