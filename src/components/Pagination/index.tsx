@@ -28,7 +28,6 @@ const Pagination: React.FC<Props> = ({
     }
     return i + page - halfCount
   })
-  console.log(1 in pageCount)
   return (
     <Root>
       {!pageCount.includes(1) && (
