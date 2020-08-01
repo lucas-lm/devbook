@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { NextPage, GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Details from '@components/Details'
@@ -49,9 +50,8 @@ const DevPage: NextPage<Props> = (props) => {
         <Details title="Repos" margin={[3, 0]}>
           <Section>
             {props.repos.map(({ name, html_url }) => (
-              <a href={html_url} target="_blank" rel="noopener">
+              <a key={name} href={html_url} target="_blank" rel="noopener noreferrer">
                 <GHStats
-                  key={name}
                   username={props.username}
                   variant="repo"
                   repo={name}
@@ -65,7 +65,8 @@ const DevPage: NextPage<Props> = (props) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps<{ params: { username: string }}> = async ({ params }) => {
+  if (!params) return { props: {} }
   const { username } = params
   const { data: dev } = await api.get(`/users/${username}`)
   const { data: repos } = await api.get(`/users/${username}/repos`)

@@ -11,7 +11,7 @@ const Details: React.FC<Props> = ({
   title = 'Details',
   open = true,
   children,
-  margin = 0,
+  margin = 0
 }) => {
   return (
     <Root open={open} margin={margin}>

@@ -4,7 +4,7 @@ import GlobalStyles, * as mode from '~/themes'
 import NavBar from '@components/NavBar'
 import Footer from '@components/Footer'
 
-function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   const theme = mode['dark']
   return (
     <ThemeProvider theme={theme}>

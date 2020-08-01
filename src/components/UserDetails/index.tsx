@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 import Text from '@components/Text'
 import { Avatar } from './styles'
 
@@ -16,10 +15,10 @@ const UserDetails: React.FC<Props> = ({
   username,
   image,
   bio,
-  github,
+  github
 }) => {
   return (
-    <a href={github} target="_blank" rel="noopener">
+    <a href={github} target="_blank" rel="noopener noreferrer">
       <main style={{ maxWidth: '600px' }}>
         <Text size={1.5}>
           {name} | @{username}

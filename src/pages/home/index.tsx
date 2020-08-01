@@ -1,7 +1,7 @@
 import Hero from '@widgets/Hero'
 import Head from 'next/head'
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Head>
@@ -11,3 +11,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home

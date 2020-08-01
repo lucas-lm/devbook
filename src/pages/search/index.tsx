@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { NextPage, GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -79,12 +80,12 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     page = 1
   })
 
-  const { data }: DataFetch = await api.get(`/search/users`, {
+  const { data }: DataFetch = await api.get('/search/users', {
     params: {
       q: `${search}`,
       per_page: perPage,
-      page,
-    },
+      page
+    }
   })
   const { total_count: totalCount, items } = data
   let users = items

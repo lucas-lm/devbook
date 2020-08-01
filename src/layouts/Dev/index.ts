@@ -4,8 +4,6 @@ export default styled.div`
   width: 90%;
   max-width: 1760px;
   margin: 16px auto;
-  /* background-color: ${({ theme }) => theme.colors.background.paper}; */
-  /* padding: ${({ theme }) => theme.spacing(1, 2)}; */
 
   @media only screen and (max-width: 768px) {
     width: 95%;

@@ -13,7 +13,7 @@ const Pagination: React.FC<Props> = ({
   limit,
   count = 5,
   page = 1,
-  linkMap = (i) => '/',
+  linkMap = () => '/'
 }) => {
   page = Number(page)
   const pageCount = Array.from({ length: count }, (v, i) => {
@@ -36,9 +36,8 @@ const Pagination: React.FC<Props> = ({
         </Link>
       )}
       {pageCount
-        .filter((i) => i <= limit && i > 0)
         .map((i) => (
-          <Link href={linkMap(i)} passHref>
+          <Link key={i} href={linkMap(i)} passHref>
             <Count current={i === page}>{i}</Count>
           </Link>
         ))}

@@ -12,14 +12,14 @@ const srcUrl = (username: string, repo: string) => {
   return {
     stats: `${GhStatsAPI}/api?username=${username}&count_private=true&theme=dark&show_icons=true`,
     langs: `${GhStatsAPI}/api/top-langs/?username=${username}&theme=dark`,
-    repo: `${GhStatsAPI}/api/pin/?username=${username}&repo=${repo}&theme=dark&show_icons=true`,
+    repo: `${GhStatsAPI}/api/pin/?username=${username}&repo=${repo}&theme=dark&show_icons=true`
   }
 }
 
 const GhStats: React.FC<Props> = ({
   username,
   variant = 'stats',
-  repo = '',
+  repo = ''
 }) => {
   const imageUrl = srcUrl(username, repo)[variant]
   return <img src={imageUrl} style={{ maxWidth: '90%' }} />

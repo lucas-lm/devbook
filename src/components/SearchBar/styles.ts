@@ -42,7 +42,7 @@ export const Input = styled.input`
 `
 
 export const Button = styled.button.attrs(() => ({
-  type: 'submit',
+  type: 'submit'
 }))<ButtonProps>`
   width: ${({ theme }) => theme.spacing(8)};
   height: ${({ theme }) => theme.spacing(4.5)};

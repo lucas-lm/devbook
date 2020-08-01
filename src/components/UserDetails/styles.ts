@@ -7,7 +7,7 @@ interface AvatarProps {
 export const Avatar = styled.img.attrs(({ user }: AvatarProps) => {
   return {
     alt: user,
-    title: user,
+    title: user
   }
 })<AvatarProps>`
   height: 128px;
