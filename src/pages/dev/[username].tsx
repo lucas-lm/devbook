@@ -35,7 +35,9 @@ const DevPage: NextPage<Props> = (props) => {
             image={props.avatar_url}
             username={props.username}
             bio={props.bio}
-            name={props.name}
+            name={
+              props.username === 'filipedeschamps' ? 'Michel Teló' : props.name
+            }
           />
         </Section>
         <Details title="Github Stats" margin={[3, 0]}>

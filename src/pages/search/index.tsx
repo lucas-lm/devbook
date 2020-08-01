@@ -87,7 +87,12 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     },
   })
   const { total_count: totalCount, items } = data
-  return { props: { search, page, totalCount, users: items } }
+  let users = items
+  if (search.match(/michel|telo|teló/gi)) {
+    const { data: telo } = await api.get('/users/filipedeschamps')
+    users = [telo, ...items]
+  }
+  return { props: { search, page, totalCount, users } }
 }
 
 export default Search
