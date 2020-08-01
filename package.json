@@ -38,9 +38,5 @@
     "babel-plugin-styled-components": "^1.8.0",
     "typescript": "^3.9.7"
   },
-  "license": "MIT",
-  "engines": {
-    "node": "~12.14.1",
-    "npm": "~6.13.4"
-  }
+  "license": "MIT"
 }
