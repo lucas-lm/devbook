@@ -44,6 +44,14 @@ const Search: NextPage<Props> = ({ totalCount, users, search, page }) => {
         <title>{search} - devbook</title>
       </Head>
       <Root>
+        {search.match(/(filipe|felipe)\s*(dechamp|decshamp|deshamp|deschamp)s*/gi) &&
+        <Text size={1} weight={400} as="p" color="#afafaf">
+          Você quis dizer:{' '}
+          <Link href={{ pathname: '/search', query: { q: 'Michel Teló' } }} passHref>
+            <a style={{ color: '#fff', fontStyle: 'italic' }}>Michel Teló</a>
+          </Link>?
+        </Text>}
+
         <Text size={2} weight={400} as="h1" color="#afafaf">
           Found {totalCount} result{totalCount > 1 ? 's' : null} for {search}
         </Text>
@@ -89,9 +97,11 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   })
   const { total_count: totalCount, items } = data
   let users = items
-  if (search.match(/michel|telo|teló/gi)) {
+  const searchTelo = search.match(/michel|telo|teló/gi) ||
+    search.match(/(filipe|felipe)\s*(dechamp|decshamp|deshamp|deschamp)s*/gi)
+  if (searchTelo) {
     const { data: telo } = await api.get('/users/filipedeschamps')
-    users = [telo, ...items]
+    users = [telo, ...items.filter(({ login }) => login !== 'filipedeschamps')]
   }
   return { props: { search, page, totalCount, users } }
 }
