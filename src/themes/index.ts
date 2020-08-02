@@ -18,7 +18,7 @@ export default createGlobalStyle`
 
   div#__next {
     min-height: 100vh;
-    background-image: ${({ theme }) => theme.colors.background.main};
+    background: ${({ theme }) => theme.colors.background.main};
     display: grid;
     grid-template-rows: auto 1fr auto;
     align-items: flex-start;

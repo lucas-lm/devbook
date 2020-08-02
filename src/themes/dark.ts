@@ -5,7 +5,7 @@ export const dark: DefaultTheme = {
     primary: '#6C80EA',
     secondary: '#A7A5EC',
     background: {
-      main: 'linear-gradient(to bottom, #000, #00030f)',
+      main: '#131325',
       paper: 'rgba(255, 255, 255, 0.25)'
     }
   },
